@@ -1,12 +1,12 @@
-#include "arvore.h"	
+#include <arvore.h>	
 #include"gtest/gtest.h" ///Google test library
 #include<list>
 #include<string>
 
 TEST(TestaArvore, ArvoreVazia){
 	Arvore a;
-	EXPECT_TRUE(a.isEmpty());
-	EXPECT_EQ(0,a.size());
+	EXPECT_TRUE(a.Vazia());
+	EXPECT_EQ(0,a.tamanho());
 }
 
 int main(int argc, char **argv){
