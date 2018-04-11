@@ -17,8 +17,10 @@ TEST(TestaArvore, AdicionaNo){
 	variosNos.adicionaNo("É de comer?");
 	variosNos.adicionaNo("Sim");
 	variosNos.adicionaNo("Não");
+	variosNos.adicionaNo("teste");
 	EXPECT_FALSE(variosNos.Vazia());
-	EXPECT_EQ(3, variosNos.tamanho());	
+	EXPECT_EQ(4, variosNos.tamanho());
+}	
 
 int main(int argc, char **argv){
   ::testing::InitGoogleTest(&argc,argv);

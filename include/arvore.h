@@ -6,7 +6,7 @@
 #include<list>
 
 struct No {
-	char dado[30];
+	std::string dado;
 	No *esquerda;
 	No *direita;
 };
@@ -15,17 +15,16 @@ struct No {
 class Arvore {
 	No *raiz_;
 	int tamanho_;
-	No* criaNo(No *no);
+	No* criaNo(std::string dado);
 	void deletaNo(No *no);
-	void ordem(No *arvore, std::string &str) const;
 
 	public:
 	  Arvore();
 	  ~Arvore();
 	  bool Vazia() const;
 	  unsigned long tamanho() const;
-	  void add(char dado[30]);
-	  void add(No *novoNo);
+	  void adicionaNo(std::string dado);
+	  void adicionaNo(No *novoNo);
 	  No* pegaRaiz() const;
 };
 
