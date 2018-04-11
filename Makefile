@@ -5,14 +5,14 @@ G++ = g++
 G++_FLAGS = -c -Wall -fprofile-arcs -ftest-coverage -I $(GOOGLE_TEST_INCLUDE)
 LD_FLAGS = -L /usr/local/lib -l $(GOOGLE_TEST_LIB) -l pthread -lgcov
 
-OBJECTS = arvoretest.o
+OBJECTS = arvore.o
 OBJECTSGCOV = arvoretest.gcno arvoretest.gcda
-TARGET = arvoretest
+TARGET = arvoretest.cpp arvore.cpp
 
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	g++ -o $(TARGET) $(OBJECTS) $(LD_FLAGS)
+	g++ $(TARGET) -o $(OBJECTS) $(LD_FLAGS)
 
 %.o : %.cpp
 	$(G++) $(G++_FLAGS) $<
