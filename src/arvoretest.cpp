@@ -9,6 +9,17 @@ TEST(TestaArvore, ArvoreVazia){
 	EXPECT_EQ(0,a.tamanho());
 }
 
+TEST(TestaArvore, AdicionaNo){
+	Arvore umNo, variosNos;
+	umNo.adicionaNo("É de beber?");
+	EXPECT_FALSE(umNo.Vazia());
+	EXPECT_EQ(1, umNo.tamanho());
+	variosNos.adicionaNo("É de comer?");
+	variosNos.adicionaNo("Sim");
+	variosNos.adicionaNo("Não");
+	EXPECT_FALSE(variosNos.Vazia());
+	EXPECT_EQ(3, variosNos.tamanho());	
+
 int main(int argc, char **argv){
   ::testing::InitGoogleTest(&argc,argv);
   return RUN_ALL_TESTS();
