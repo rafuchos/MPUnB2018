@@ -1,31 +1,35 @@
 #ifndef ARVORE_H
 #define ARVORE_H
 
-#include<string>
-#include<queue>
-#include<list>
+#include <string>
+#include <queue>
+#include <list>
+#include <iostream>
 
 struct No {
-	std::string dado;
+	int dado;
 	No *esquerda;
 	No *direita;
+	std::string valor;
 };
 
 
 class Arvore {
 	No *raiz_;
 	int tamanho_;
-	No* pesquisaNo(std::string dado, No *folha) const;
-	void adicionaNo(std::string dado, No *novoNo);
+	No* pesquisaNo(int dado, No *folha);
+	void adicionaNo(int dado, No *novoNo, std::string valor);
+	void deletaNo(No *no);
 
 	public:
-	  void deletaNo(No *no);
 	  Arvore();
 	  ~Arvore();
 	  bool Vazia() const;
 	  unsigned long tamanho() const;
-	  void adicionaNo(std::string dado);
-	  No *pesquisaNo(std::string dado);
+	  void adicionaNo(int dado, std::string valor);
+	  No *pesquisaNo(int dado);
+	  No *pegaRaiz();
+	  void deletaNo();
 
 
 };
