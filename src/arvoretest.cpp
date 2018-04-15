@@ -35,6 +35,19 @@ TEST(TestaArvore, DeletaNo){
 	variosNos.deletaNo(pesquisaNo("teste"));
 	EXPECT_EQ(3, variosNos.tamanho());
 }
+
+TEST(TestaArvore, PesquisaNo){
+	Arvore pesquisa;
+	No *no;
+	No *nodelete;
+	pesquisa.adicionaNo("Olá");
+	no = pesquisa.pesquisaNo("Olá");
+	EXPECT_EQ(pesquisa->raiz_,no);
+	pesquisa.deletaNo(no);
+	nodelete = pesquisa.pesquisaNo("Olá");
+	EXPECT_EQ(NULL,nodelete);
+}
+
 int main(int argc, char **argv){
   ::testing::InitGoogleTest(&argc,argv);
   return RUN_ALL_TESTS();
