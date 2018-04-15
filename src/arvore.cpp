@@ -25,6 +25,7 @@ void Arvore::deletaNo(No *no){
 	if(no ==NULL) return;
 	deletaNo(no->esquerda);
 	deletaNo(no->direita);
+	tamanho_--;
 	delete no;
 }
 
@@ -32,28 +33,35 @@ Arvore::~Arvore() {
 	deletaNo(raiz_);
 }
 
-No* Arvore::criaNo(std::string dado){
-	No *no = new (nothrow) No;
-	no->esquerda = NULL;
-	no->direita = NULL;
-	no->dado = dado;
-	tamanho_++;
-
-return no;
-}
-
-void Arvore::adicionaNo(No* novoNo){
-	if(Vazia()){
-		raiz_ = novoNo;
-	}else if(raiz_->esquerda == NULL){
-		raiz_->esquerda = novoNo;
-	}else{
-		raiz_->direita = novoNo;
+void Arvore::adicionaNo(std::string dado, No* novoNo){
+	if(novoNo->esquerda != NULL){
+		adicionaNo(dado, novoNo->esquerda);
 	}
+	else if(novoNo->direita != NULL){
+		adicionaNo(dado, novoNo->direita);
+	}
+	else{
+		novoNo->esquerda = new (nothrow) No;
+		novoNo->esquerda->esquerda = NULL;
+		novoNo->esquerda->direita = NULL;
+		novoNo->esquerda->dado = dado;
+		tamanho_++;
+	}
+
 }
 
 void Arvore::adicionaNo(std::string dado){
-	No *novoNo = criaNo(dado);
-	adicionaNo(novoNo);
+	if(raiz_ != NULL){
+		adicionaNo(dado, raiz_);
+	}
+	else{
+		raiz_ = new (nothrow) No;
+		raiz_->dado = dado;
+		raiz_->esquerda = NULL;
+		raiz_->direita = NULL;
+		tamanho_++;
+	}
 }
+
+
 	

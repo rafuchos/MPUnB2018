@@ -15,6 +15,8 @@ DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 _OBJ = arvoretest.o arvore.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
+GCOV = $(ODIR)/arvore
+
 $(ODIR)/%.o: %.cpp $(DEPS)
 	$(G++) -c -o $@ $< $(G++_FLAGS)
 
@@ -30,6 +32,5 @@ clean:
 
 gcov:
 	chmod -R 0755 .
-	./$(TARGET)
-	gcov $(TARGET) -m
+	gcov $(GCOV) -m
 

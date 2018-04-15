@@ -15,17 +15,19 @@ struct No {
 class Arvore {
 	No *raiz_;
 	int tamanho_;
-	No* criaNo(std::string dado);
-	void deletaNo(No *no);
+	No* pesquisaNo(std::string dado, No *folha) const;
+	void adicionaNo(std::string dado, No *novoNo);
 
 	public:
+	  void deletaNo(No *no);
 	  Arvore();
 	  ~Arvore();
 	  bool Vazia() const;
 	  unsigned long tamanho() const;
 	  void adicionaNo(std::string dado);
-	  void adicionaNo(No *novoNo);
-	  No* pegaRaiz() const;
+	  No *pesquisaNo(std::string dado);
+
+
 };
 
 #endif
