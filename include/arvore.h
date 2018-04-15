@@ -19,7 +19,7 @@ class Arvore {
 	int tamanho_;
 	No* pesquisaNo(int dado, No *folha);
 	void adicionaNo(int dado, No *novoNo, std::string valor);
-	void deletaNo(No *no);
+	
 
 	public:
 	  Arvore();
@@ -29,7 +29,7 @@ class Arvore {
 	  void adicionaNo(int dado, std::string valor);
 	  No *pesquisaNo(int dado);
 	  No *pegaRaiz();
-	  void deletaNo();
+	  void deletaNo(No *no);
 
 
 };

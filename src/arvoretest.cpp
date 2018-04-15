@@ -26,15 +26,15 @@ TEST(TestaArvore, AdicionaNo){
 TEST(TestaArvore, DeletaNo){
 	Arvore umNo, variosNos;
 	umNo.adicionaNo(3,"É de beber?");
-	umNo.deletaNo();
+	umNo.deletaNo(umNo.pesquisaNo(3));
 	EXPECT_TRUE(umNo.Vazia());
 	variosNos.adicionaNo(5,"É de comer?");
 	variosNos.adicionaNo(4,"Sim");
 	variosNos.adicionaNo(6,"Não");
 	variosNos.adicionaNo(3,"teste");
 	EXPECT_EQ(4, variosNos.tamanho());
-	variosNos.deletaNo();
-	EXPECT_EQ(0, variosNos.tamanho());
+	variosNos.deletaNo(variosNos.pesquisaNo(3));
+	EXPECT_EQ(3, variosNos.tamanho());
 }
 
 TEST(TestaArvore, PesquisaNo){
@@ -46,7 +46,7 @@ TEST(TestaArvore, PesquisaNo){
 	cout << no->valor << endl;
 	EXPECT_EQ(pesquisa.pegaRaiz(),no);
 	pesquisa.adicionaNo(2,"Olá 2");
-	pesquisa.deletaNo();
+	pesquisa.deletaNo(pesquisa.pesquisaNo(1));
 	nodelete = pesquisa.pesquisaNo(1);
 	EXPECT_EQ(NULL,nodelete);
 }
